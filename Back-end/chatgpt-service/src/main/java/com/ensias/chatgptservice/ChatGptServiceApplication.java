@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ChatgptServiceApplication {
+public class ChatGptServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ChatgptServiceApplication.class, args);
+        SpringApplication.run(ChatGptServiceApplication.class, args);
     }
 
 }
