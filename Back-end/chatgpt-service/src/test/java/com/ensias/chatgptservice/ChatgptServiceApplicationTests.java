@@ -1,10 +1,10 @@
-package com.ensias.chatbotservice;
+package com.ensias.chatgptservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ChatbotServiceApplicationTests {
+class ChatgptServiceApplicationTests {
 
     @Test
     void contextLoads() {

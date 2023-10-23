@@ -1,13 +1,13 @@
-package com.ensias.chatbotservice;
+package com.ensias.chatgptservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ChatbotServiceApplication {
+public class ChatgptServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ChatbotServiceApplication.class, args);
+        SpringApplication.run(ChatgptServiceApplication.class, args);
     }
 
 }
