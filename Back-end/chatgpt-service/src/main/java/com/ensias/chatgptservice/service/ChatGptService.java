@@ -34,7 +34,7 @@ public class ChatGptService {
                 .subscribe(
                         chunk -> {
                             try {
-                                emitter.send(chunk.getChoices().get(0).getMessage().getContent());
+                                emitter.send(chunk.getChoices().get(0).getMessage());
                             } catch (IOException e) {
                                 emitter.completeWithError(e);
                             }

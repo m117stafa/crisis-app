@@ -21,8 +21,8 @@ public class ChatGptController {
     private ChatGptService chatGptService;
 
 
-    @PostMapping("/chat")
-    public SseEmitter chatEndpoint(@RequestBody String message) {
+    @GetMapping("/chat")
+    public SseEmitter chatEndpoint(@RequestParam String message) {
         return this.chatGptService.getChatEmitter(message);
     }
 }
