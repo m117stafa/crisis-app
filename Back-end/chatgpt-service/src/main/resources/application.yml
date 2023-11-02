@@ -1,3 +1,3 @@
 openai:
   api:
-    key:
+    key: ${OPENAI_KEY}

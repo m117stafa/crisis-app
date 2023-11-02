@@ -18,17 +18,12 @@ import java.util.List;
 
 @Service
 public class ChatGptService {
-    @Value("${OPENAI_KEY}")
+    @Value("${openai.api.key}")
     private String apiKey;
-
-    private final OpenAiService openAiService;
-
-    public ChatGptService() {
-        this.openAiService = new OpenAiService(apiKey);
-    }
 
 
     public SseEmitter getChatEmitter(String message){
+        OpenAiService openAiService = new OpenAiService(apiKey);
         SseEmitter emitter = new SseEmitter();
 
         List<ChatMessage> messages = createChatMessages(message);
