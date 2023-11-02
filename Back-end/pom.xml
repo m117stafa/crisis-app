@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ensias</groupId>
-    <artifactId>micro-crisis-app</artifactId>\
+    <artifactId>micro-crisis-app</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>micro-crisis-app</name>
