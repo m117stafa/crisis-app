@@ -35,7 +35,7 @@ const Chatbot = () => {
 	};
 
 	return (
-		<div>
+		<div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
 			<h1>Chat Responses</h1>
 			<ol>
 				<li>
