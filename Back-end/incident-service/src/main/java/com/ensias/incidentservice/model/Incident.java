@@ -1,6 +1,7 @@
 package com.ensias.incidentservice.model;
 
 import com.ensias.incidentservice.model.enums.IncidentType;
+import com.ensias.incidentservice.model.enums.Urgency;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,4 +22,6 @@ public class Incident {
     private Location location;
     private Long userId;
     private String imageUrl;
+    private String videoUrl;
+    private Urgency urgency;
 }

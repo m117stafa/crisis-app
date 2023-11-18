@@ -1,6 +1,7 @@
 package com.ensias.incidentservice.controller;
 
 import com.ensias.incidentservice.model.Incident;
+import com.ensias.incidentservice.model.enums.Urgency;
 import com.ensias.incidentservice.service.IncidentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,16 @@ public class IncidentController {
     @GetMapping("/search")
     public ResponseEntity<List<Incident>> getIncidentsByTitle(@RequestParam String title) {
         return ResponseEntity.ok(incidentService.getIncidentsByTitle(title));
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Incident>> getIncidentsByUserId(@PathVariable Long userId) {
+        return ResponseEntity.ok(incidentService.getIncidentsByUserId(userId));
+    }
+
+    @GetMapping("/urgency/{urgency}")
+    public ResponseEntity<List<Incident>> getIncidentsByUrgency(@PathVariable Urgency urgency) {
+        return ResponseEntity.ok(incidentService.getIncidentsByUrgency(urgency));
     }
 
     @PostMapping("")

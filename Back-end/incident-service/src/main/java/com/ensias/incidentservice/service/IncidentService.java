@@ -1,6 +1,7 @@
 package com.ensias.incidentservice.service;
 
 import com.ensias.incidentservice.model.Incident;
+import com.ensias.incidentservice.model.enums.Urgency;
 import com.ensias.incidentservice.repository.IncidentRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,14 @@ public class IncidentService {
 
     public List<Incident> getAllIncidents() {
         return incidentRepository.findAll();
+    }
+
+    public List<Incident> getIncidentsByUserId(Long userId) {
+        return incidentRepository.findByUserId(userId);
+    }
+
+    public List<Incident> getIncidentsByUrgency(Urgency urgency) {
+        return incidentRepository.findByUrgency(urgency);
     }
 
     public Incident saveIncident(Incident incident) {
