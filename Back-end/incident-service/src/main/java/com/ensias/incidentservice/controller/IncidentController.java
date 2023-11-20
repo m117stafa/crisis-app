@@ -47,6 +47,11 @@ public class IncidentController {
         return ResponseEntity.ok(incidentService.saveIncident(incident));
     }
 
+    @PostMapping("/{id}/vote")
+    public ResponseEntity<Incident> addVote(@PathVariable String id, @RequestParam boolean isUpVote) {
+        return ResponseEntity.ok(incidentService.addVote(id, isUpVote));
+    }
+
     @PutMapping("")
     public ResponseEntity<Incident> updateIncident(@RequestBody Incident incident) {
         return ResponseEntity.ok(incidentService.saveIncident(incident));

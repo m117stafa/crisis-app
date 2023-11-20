@@ -24,4 +24,6 @@ public class Incident {
     private String imageUrl;
     private String videoUrl;
     private Urgency urgency;
+    private Long upVotes;
+    private Long downVotes;
 }

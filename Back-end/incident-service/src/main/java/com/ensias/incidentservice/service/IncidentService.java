@@ -55,5 +55,35 @@ public class IncidentService {
         }
     }
 
+    public Incident addVote(String id, boolean isUpVote) {
+        Optional<Incident> incident = incidentRepository.findById(id);
+        if (incident.isPresent()) {
+            Incident incident1 = incident.get();
+            if (isUpVote) {
+                incident1.setUpVotes(incident1.getUpVotes() + 1);
+            } else {
+                incident1.setDownVotes(incident1.getDownVotes() + 1);
+            }
+            return incidentRepository.save(incident1);
+        } else {
+            throw new RuntimeException("Incident not found for id : " + id);
+        }
+    }
+
+    public Incident removeVote(String id, boolean isUpVote) {
+        Optional<Incident> incident = incidentRepository.findById(id);
+        if (incident.isPresent()) {
+            Incident incident1 = incident.get();
+            if (isUpVote) {
+                incident1.setUpVotes(incident1.getUpVotes() - 1);
+            } else {
+                incident1.setDownVotes(incident1.getDownVotes() - 1);
+            }
+            return incidentRepository.save(incident1);
+        } else {
+            throw new RuntimeException("Incident not found for id : " + id);
+        }
+    }
+
 
 }
