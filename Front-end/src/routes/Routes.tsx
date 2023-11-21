@@ -3,6 +3,7 @@ import PublicRoutesRoot from './PublicRoutesRoot';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import { RouterProvider ,createBrowserRouter } from "react-router-dom";
+import Homepage from '../pages/Homepage';
 
 const Routes = () => {
     const routesForPublic = [
@@ -10,6 +11,10 @@ const Routes = () => {
 			path: "/",
 			element: <PublicRoutesRoot />,
 			children: [
+				{
+					path: "/",
+					element: <Homepage />,
+				},
 			],
 		},
         {
