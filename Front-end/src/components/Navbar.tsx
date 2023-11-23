@@ -1,39 +1,25 @@
-import { Fragment, useState } from "react";
-import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+import { useState } from "react";
+import { Dialog, Popover } from "@headlessui/react";
 import {
-	ArrowPathIcon,
 	Bars3Icon,
-	ChartPieIcon,
-	CursorArrowRaysIcon,
-	FingerPrintIcon,
-	SquaresPlusIcon,
 	XMarkIcon,
 } from "@heroicons/react/24/outline";
-import {
-	ChevronDownIcon,
-	PhoneIcon,
-	PlayCircleIcon,
-} from "@heroicons/react/20/solid";
 import NavbarItemWideScreen, { NavbarItemMenu } from "./NavbarItem";
 import { Link } from "react-router-dom";
 import { SearchInput } from "./Input";
 
 const NavbarItems = [
-	{ name: "Incidents", href: "#" },
+	{ name: "Incidents", href: "incidents" },
 	{ name: "Chatbot", href: "#" },
 	{ name: "Educational", href: "#" },
 	{ name: "About us", href: "#" },
 ];
 
-function classNames(...classes: string[]) {
-	return classes.filter(Boolean).join(" ");
-}
-
 export default function Example() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
-		<header className="absolute inset-x-0 top-0 z-50">
+		<header className="inset-x-0 top-0 z-10">
 			<nav
 				className="mx-auto flex max-w-full items-center justify-between p-6 lg:px-8"
 				aria-label="Global"
@@ -88,7 +74,7 @@ export default function Example() {
 				onClose={setMobileMenuOpen}
 			>
 				<div className="fixed inset-0 z-10" />
-				<Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+				<Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
 					<div className="flex items-center justify-between">
 						<a href="#" className="-m-1.5 p-1.5">
 							<span className="font-bold">Crisis management</span>

@@ -4,6 +4,8 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import { RouterProvider ,createBrowserRouter } from "react-router-dom";
 import Homepage from '../pages/Homepage';
+import Incidents from '../pages/Incidents';
+import Error from '../pages/Error';
 
 const Routes = () => {
     const routesForPublic = [
@@ -15,7 +17,12 @@ const Routes = () => {
 					path: "/",
 					element: <Homepage />,
 				},
+				{
+					path: "/incidents",
+					element: <Incidents />,
+				}
 			],
+			errorElement: <Error />
 		},
         {
             path: "/login",
