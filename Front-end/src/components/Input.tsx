@@ -5,8 +5,19 @@ interface InputProps {
 	autoComplete?: string;
 	required?: boolean;
 	placeholder?: string;
-	onClick?: () => void;
 }
+
+interface SearchInputProps {
+	id: string;
+	name: string;
+	type: string;
+	autoComplete?: string;
+	required?: boolean;
+	placeholder?: string;
+	onClick: () => void;
+}
+
+
 
 const Input = (props: InputProps) => {
 	return (
@@ -22,7 +33,7 @@ const Input = (props: InputProps) => {
 	);
 };
 
-export const SearchInput = (props: InputProps) => {
+export const SearchInput = (props: SearchInputProps) => {
 	return (
 		<>
 			<input
@@ -53,5 +64,31 @@ export const SearchInput = (props: InputProps) => {
 		</>
 	);
 };
+
+export const TextArea = (props: InputProps) => {
+	return (
+		<textarea
+			id={props.id}
+			name={props.name}
+			autoComplete={props.autoComplete}
+			required={props.required}
+			placeholder={props.placeholder}
+			className="block w-full h-24 resize-none bg-white rounded-md border-0 py-1.5 px-3 text-black placeholder:text-gray-400 border-transparent focus:border-transparent focus:ring-0 sm:leading-6"
+		/>
+	);
+}
+
+export const TitleInput = (props: InputProps) => {
+	return (
+		<input
+			id={props.id}
+			name={props.name}
+			autoComplete={props.autoComplete}
+			required={props.required}
+			placeholder={props.placeholder}
+			className="block w-full bg-white rounded-md border-0 py-1.5 px-3 text-black placeholder:text-gray-400 border-transparent focus:border-transparent focus:ring-0 sm:leading-6"
+		/>
+	);
+}
 
 export default Input;

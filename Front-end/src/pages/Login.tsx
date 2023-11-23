@@ -1,30 +1,9 @@
+import { Link } from "react-router-dom";
 import Input from "../components/Input";
 
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 export default function Login() {
 	return (
 		<>
-			{/*
-          This example requires updating your template:
-  
-          ```
-          <html class="h-full bg-white">
-          <body class="h-full">
-          ```
-        */}
 			<div className="flex min-h-full flex-1 flex-col justify-center items-center px-6 py-12 lg:px-8">
 				<div className="sm:mx-auto sm:w-full sm:max-w-sm">
 					<h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
@@ -93,14 +72,14 @@ export default function Login() {
 						</div>
 					</form>
 
-					<p className="mt-10 text-center text-sm text-gray-500">
+					<p className="mt-3 text-center text-sm text-gray-500">
 						Not a member?{" "}
-						<a
-							href="#"
+						<Link
+							to={"/register"}
 							className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
 						>
 							Sign up
-						</a>
+						</Link>
 					</p>
 				</div>
 			</div>
