@@ -1,0 +1,15 @@
+export enum UrgencyEnum {
+    LOW = 'LOW',
+    MEDIUM = 'MEDIUM',
+    HIGH = 'HIGH'
+}
+
+export enum IncidentTypesEnum {
+    NATURAL_DISASTER,
+    MAN_MADE_DISASTER,
+    PUBLIC_HEALTH_EMERGENCY,
+    SECURITY_EMERGENCY,
+    INFRASCTRUCTURE_FAILURE,
+    MEDICAL_EMERGENCY,
+    OTHER
+}
