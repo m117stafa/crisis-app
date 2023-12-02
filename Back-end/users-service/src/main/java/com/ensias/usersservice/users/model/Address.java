@@ -1,4 +1,4 @@
-package com.ensias.usersservice.model;
+package com.ensias.usersservice.users.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

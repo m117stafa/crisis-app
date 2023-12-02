@@ -1,0 +1,43 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: incident-service
+          uri: lb://INCIDENT-SERVICE
+          predicates:
+            - Path=/incident/**
+
+        - id: users-service
+          uri: lb://USERS-SERVICE
+          predicates:
+            - Path=/user/** , /auth/**
+
+        - id: chatgpt-service
+          uri: lb://chatgpt-service
+          predicates:
+              - Path=/chatgpt/**
+
+        - id: educational-service
+          uri: lb://educational-service
+          predicates:
+              - Path=/articles/**
+
+  application:
+    name: gateway-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8080
+
+application:
+  security:
+    jwt:
+      secret-key: 367639792F423F4528482B4D6251655468576D5A7134743777217A2543264629
+      expiration: 10800000 # 3 hours
+      refresh-token:
+        expiration: 604800000 # 7 days
+

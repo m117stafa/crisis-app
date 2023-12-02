@@ -2,4 +2,14 @@ openai:
   api:
     key: ${OPENAI_KEY}
 
+server:
+  port: 8084
 
+spring:
+  application:
+    name: chatgpt-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

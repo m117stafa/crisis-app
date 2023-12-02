@@ -7,17 +7,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="apigw" />
         <module name="chatgpt-service" />
         <module name="educational-service" />
         <module name="incident-service" />
         <module name="users-service" />
+        <module name="eureka-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="config-service" target="17" />
+      <module name="eureka-service" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="apigw" options="-parameters" />
       <module name="chatgpt-service" options="-parameters" />
+      <module name="config-service" options="-parameters" />
       <module name="educational-service" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="eureka-service" options="-parameters" />
       <module name="incident-service" options="-parameters" />
       <module name="micro-crisis-app" options="" />
       <module name="users-service" options="-parameters" />

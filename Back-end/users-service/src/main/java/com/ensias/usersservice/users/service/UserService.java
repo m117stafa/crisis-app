@@ -1,7 +1,7 @@
-package com.ensias.usersservice.service;
+package com.ensias.usersservice.users.service;
 
-import com.ensias.usersservice.model.User;
-import com.ensias.usersservice.repository.UserRepository;
+import com.ensias.usersservice.users.model.User;
+import com.ensias.usersservice.users.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
