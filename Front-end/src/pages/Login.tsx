@@ -1,7 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Input from "../components/Input";
+import { useState } from "react";
 
 export default function Login() {
+	const [email, setEmail] = useState<string>("");
+	const [password, setPassword] = useState<string>("");
+	const [error, setError] = useState(false);
+	const navigate = useNavigate();
+
+	const handleEmailChange = (e) => {
+		setEmail(e.target.value);
+	};
+
+	const handlePasswordChange = (e) => {
+		setPassword(e.target.value);
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		// Add your login logic here using the 'email' and 'password' state
+		if (email =="admin@admin.com" && password == "admin"){
+			localStorage.setItem("username","Admin");
+			navigate("/", { replace: true });
+		} else{
+			setError(true);
+		}
+	};
+
 	return (
 		<>
 			<div className="flex min-h-full flex-1 flex-col justify-center items-center px-6 py-12 lg:px-8">
@@ -16,6 +41,7 @@ export default function Login() {
 
 				<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
 					<form className="space-y-6" action="#" method="POST">
+						{error?<div className="text-red-600">Incorrect email or password</div>:""}
 						<div>
 							<label
 								htmlFor="email"
@@ -29,6 +55,8 @@ export default function Login() {
 									name="email"
 									autoComplete="email"
 									type="email"
+									onChange={handleEmailChange}
+									value={email}
 									required
 								/>
 							</div>
@@ -57,6 +85,8 @@ export default function Login() {
 									name="password"
 									autoComplete="current-password"
 									type="password"
+									onChange={handlePasswordChange}
+									value={password}
 									required
 								/>
 							</div>
@@ -65,6 +95,7 @@ export default function Login() {
 						<div>
 							<button
 								type="submit"
+								onClick={handleSubmit}
 								className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 							>
 								Sign in

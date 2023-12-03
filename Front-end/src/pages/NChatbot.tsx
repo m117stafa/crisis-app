@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useChatbot } from "../api/useChatBot";
+import { useChatbot } from "../hooks/useChatBot";
 
 const NChatbot = () => {
 	const [chatData, setChatData] = useState<string[]>([]);
@@ -19,7 +19,7 @@ const NChatbot = () => {
 		setChatData([]);
 		setInput("");
 		const eventSource = new EventSource(
-			`http://localhost:8080/api/v1/chatgpt/chat?message=${input}`
+			`http://localhost:8080/chatgpt/chat?message=${input}`
 		);
 
 		eventSource.onmessage = (event) => {

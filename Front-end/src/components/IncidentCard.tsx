@@ -7,8 +7,10 @@ import {
 	Avatar,
 } from "@nextui-org/react";
 import { IncidentTypesEnum } from "../utils/enums";
+import { downVote, upVote } from "../api/incidentAPI";
 
 interface IncidentCardProps {
+	id: string;
 	title: string;
 	description: string;
 	type: IncidentTypesEnum;
@@ -17,8 +19,8 @@ interface IncidentCardProps {
 	//     longitude: number;
 	//     distance: number;
 	// };
-	date: Date;
-	user: {
+	date?: string;
+	user?: {
 		username: string;
 		avatar: string;
 	};
@@ -27,9 +29,29 @@ interface IncidentCardProps {
 	// urgency: UrgencyEnum;
 	upVotes: number;
 	downVotes: number;
+	onVote:()=> void;
 }
 
 const IncidentCard = (props: IncidentCardProps) => {
+	const handleUpVote = async()=>{
+		try {
+			const response = await upVote(props.id);
+			props.onVote();
+			console.log(response);
+		} catch(e){
+			console.error(e);
+		}
+	}
+	const handleDownVote = async()=>{
+		try {
+			const response = await downVote(props.id);
+			props.onVote();
+			console.log(response);
+		} catch(e){
+			console.error(e);
+		}
+	}
+	
 	return (
 		<Card className="lg:w-2/3 w-full mx-5 p-2">
 			<CardHeader className="justify-between">
@@ -38,14 +60,14 @@ const IncidentCard = (props: IncidentCardProps) => {
 						isBordered
 						radius="full"
 						size="md"
-						src={props.user.avatar}
+						src={props.user?.avatar}
 					/>
 					<div className="flex flex-col gap-1 items-start justify-center">
 						<h4 className="text-small font-semibold leading-none text-default-600">
-							{props.user.username}
+							{props.user?.username}
 						</h4>
 						<p className="text-small text-default-400">
-							{props.date.toDateString()}
+							{props.date}
 						</p>
 					</div>
 				</div>
@@ -61,7 +83,7 @@ const IncidentCard = (props: IncidentCardProps) => {
 					<p className="font-semibold text-default-400 text-small">
 						{props.upVotes}
 					</p>
-					<p className=" text-default-400 text-small rounded-full p-1 hover:bg-slate-100 hover:cursor-pointer transition">
+					<p onClick={()=> handleUpVote()} className=" text-default-400 text-small rounded-full p-1 hover:bg-slate-100 hover:cursor-pointer transition">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -82,7 +104,7 @@ const IncidentCard = (props: IncidentCardProps) => {
 					<p className="font-semibold text-default-400 text-small">
 						{props.downVotes}
 					</p>
-					<p className="text-default-400 text-small rounded-full p-1 hover:bg-slate-100 hover:cursor-pointer transition">
+					<p onClick={() => handleDownVote()} className="text-default-400 text-small rounded-full p-1 hover:bg-slate-100 hover:cursor-pointer transition">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"

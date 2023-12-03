@@ -1,9 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dialog, Popover } from "@headlessui/react";
-import {
-	Bars3Icon,
-	XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import NavbarItemWideScreen, { NavbarItemMenu } from "./NavbarItem";
 import { Link } from "react-router-dom";
 import { SearchInput } from "./Input";
@@ -17,6 +14,16 @@ const NavbarItems = [
 
 export default function Example() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+	const [username, setUsername] = useState<string | null>(null);
+
+	useEffect(() => {
+		// Check if username exists in localStorage
+		const storedUsername = localStorage.getItem("username");
+		if (storedUsername) {
+			setUsername(storedUsername);
+		}
+	}, []);
 
 	return (
 		<header className="inset-x-0 top-0 z-10">
@@ -59,12 +66,20 @@ export default function Example() {
 				</Popover.Group>
 
 				<div className="hidden lg:flex lg:flex-1 lg:justify-end">
-					<Link
-						to={"login"}
-						className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 ease-linear duration-75"
-					>
-						Log in <span aria-hidden="true">&rarr;</span>
-					</Link>
+					{username ? (
+						// Render the username if available in localStorage
+						<span className="text-sm font-semibold leading-6 text-gray-900">
+							{username}
+						</span>
+					) : (
+						// Render the login link if username is not available
+						<Link
+							to={"/login"}
+							className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 ease-linear duration-75"
+						>
+							Log in <span aria-hidden="true">&rarr;</span>
+						</Link>
+					)}
 				</div>
 			</nav>
 			<Dialog
@@ -110,12 +125,21 @@ export default function Example() {
 							</div>
 
 							<div className="py-6">
-								<Link
-									to={"login"}
-									className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:text-indigo-600 ease-linear duration-75"
-								>
-									Log in
-								</Link>
+								{username ? (
+									// Render the username if available in localStorage
+									<span className="text-sm font-semibold leading-6 text-gray-900">
+										{username}
+									</span>
+								) : (
+									// Render the login link if username is not available
+									<Link
+										to={"/login"}
+										className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 ease-linear duration-75"
+									>
+										Log in{" "}
+										<span aria-hidden="true">&rarr;</span>
+									</Link>
+								)}
 							</div>
 						</div>
 					</div>

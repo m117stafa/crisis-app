@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useChatbot } from "../api/useChatBot";
+import { useChatbot } from "../hooks/useChatBot";
 
 const Chatbot = () => {
 	const [chatData, setChatData] = useState<string[]>([]);

@@ -21,6 +21,20 @@ spring:
           uri: lb://educational-service
           predicates:
               - Path=/articles/**
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:5173"
+            allowedMethods:
+                - GET
+                - POST
+                - PUT
+                - DELETE
+                - OPTIONS
+            allowedHeaders: '*'
+            exposedHeaders: '*'
 
   application:
     name: gateway-service
@@ -33,11 +47,5 @@ eureka:
 server:
   port: 8080
 
-application:
-  security:
-    jwt:
-      secret-key: 367639792F423F4528482B4D6251655468576D5A7134743777217A2543264629
-      expiration: 10800000 # 3 hours
-      refresh-token:
-        expiration: 604800000 # 7 days
+
 

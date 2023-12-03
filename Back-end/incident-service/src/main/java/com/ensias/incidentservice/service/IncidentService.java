@@ -5,6 +5,8 @@ import com.ensias.incidentservice.model.enums.Urgency;
 import com.ensias.incidentservice.repository.IncidentRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +31,9 @@ public class IncidentService {
     }
 
     public Incident saveIncident(Incident incident) {
+        incident.setDate(LocalDateTime.now());
+        incident.setUpVotes(0L);
+        incident.setDownVotes(0L);
         return incidentRepository.save(incident);
     }
 
