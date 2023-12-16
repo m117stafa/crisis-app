@@ -6,6 +6,7 @@ import { RouterProvider ,createBrowserRouter } from "react-router-dom";
 import Homepage from '../pages/Homepage';
 import Incidents from '../pages/Incidents';
 import Error from '../pages/Error';
+import NChatbot from '../pages/NChatbot';
 
 const Routes = () => {
     const routesForPublic = [
@@ -20,6 +21,10 @@ const Routes = () => {
 				{
 					path: "/incidents",
 					element: <Incidents />,
+				},
+				{
+					path: "/chatbot",
+					element: <NChatbot />
 				}
 			],
 			errorElement: <Error />

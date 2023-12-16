@@ -3,6 +3,7 @@ package com.ensias.usersservice.users.service;
 import com.ensias.usersservice.users.model.User;
 import com.ensias.usersservice.users.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.tuto.clients.UserResponse;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,10 +24,10 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User getUserById(Long id) {
+    public UserResponse getUserById(Long id) {
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent()) {
-            return user.get();
+            return new UserResponse(user.get().getId(), user.get().getUsername(), user.get().getEmail(), user.get().getFirstName(), user.get().getLastName());
         } else {
             throw new RuntimeException("User not found for the id: " + id);
         }

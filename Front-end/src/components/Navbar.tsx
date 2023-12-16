@@ -7,8 +7,8 @@ import { SearchInput } from "./Input";
 
 const NavbarItems = [
 	{ name: "Incidents", href: "incidents" },
-	{ name: "Chatbot", href: "#" },
-	{ name: "Educational", href: "#" },
+	{ name: "Chatbot", href: "chatbot" },
+	{ name: "Dashboard", href: "#" },
 	{ name: "About us", href: "#" },
 ];
 

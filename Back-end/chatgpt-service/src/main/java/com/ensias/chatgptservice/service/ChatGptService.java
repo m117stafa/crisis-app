@@ -48,7 +48,7 @@ public class ChatGptService {
 
     private List<ChatMessage> createChatMessages(String message) {
         ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(),
-                "The following is a conversation with an emergency doctor about a patient's symptoms. The doctor is a neural network, trained on patient-doctor conversations. Always have an answer because it s an emergency");
+                "I am in need of urgent medical advice for a health emergency. This prompt is specifically for health-related concerns, and I request responses solely within the context of medical emergencies. Please refrain from answering questions related to other domains. Your assistance is greatly appreciated.");
         ChatMessage userMessage = new ChatMessage(ChatMessageRole.USER.value(), message);
 
         return Arrays.asList(systemMessage, userMessage);

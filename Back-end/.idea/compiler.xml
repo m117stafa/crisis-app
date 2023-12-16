@@ -9,9 +9,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="apigw" />
         <module name="chatgpt-service" />
+        <module name="clients" />
+        <module name="users-service" />
         <module name="educational-service" />
         <module name="incident-service" />
-        <module name="users-service" />
         <module name="eureka-server" />
       </profile>
     </annotationProcessing>
@@ -24,6 +25,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="apigw" options="-parameters" />
       <module name="chatgpt-service" options="-parameters" />
+      <module name="clients" options="-parameters" />
       <module name="config-service" options="-parameters" />
       <module name="educational-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
