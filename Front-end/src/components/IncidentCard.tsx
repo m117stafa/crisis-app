@@ -8,6 +8,10 @@ import {
 } from "@nextui-org/react";
 import { IncidentTypesEnum } from "../utils/enums";
 import { downVote, upVote } from "../api/incidentAPI";
+import CommentInput from "./CommentInput";
+import Comment from "./Comment";
+import { mockComment } from "../utils/mockComment";
+import { CommentModel } from "../utils/COmmentModel";
 
 interface IncidentCardProps {
 	id: string;
@@ -30,6 +34,7 @@ interface IncidentCardProps {
 	upVotes: number;
 	downVotes: number;
 	onVote:()=> void;
+	comments?: CommentModel[];
 }
 
 const IncidentCard = (props: IncidentCardProps) => {
@@ -122,6 +127,10 @@ const IncidentCard = (props: IncidentCardProps) => {
 					</p>
 				</div>
 			</CardFooter>
+			<CommentInput/>
+			{props.comments?.map((comment) => (
+				<Comment comment={comment} />
+			))}
 		</Card>
 	);
 };

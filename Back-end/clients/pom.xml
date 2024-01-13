@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.tuto.clients</groupId>
+    <groupId>com.ensias.clients</groupId>
     <artifactId>clients</artifactId>
 
     <properties>

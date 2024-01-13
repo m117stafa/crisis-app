@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useChatbot } from "../hooks/useChatBot";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 const NChatbot = () => {
 	const [chatData, setChatData] = useState<string[]>([]);
 	const [chatHistory, setChatHistory] = useState<string[]>([]);
-	const [input, setInput] = useState<string>("");
+	const location = useLocation();
+	const receivedData = new URLSearchParams(location.search).get('query');
+	const [input, setInput] = useState<string>(receivedData);
 
 	const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInput(e.target.value);
@@ -36,6 +39,7 @@ const NChatbot = () => {
 
 		// Clean up the event source connection when the component unmounts
 	};
+
 
 	return (
 		<>

@@ -7,6 +7,7 @@ import Homepage from '../pages/Homepage';
 import Incidents from '../pages/Incidents';
 import Error from '../pages/Error';
 import NChatbot from '../pages/NChatbot';
+import Test from '../pages/Test';
 
 const Routes = () => {
     const routesForPublic = [
@@ -25,6 +26,9 @@ const Routes = () => {
 				{
 					path: "/chatbot",
 					element: <NChatbot />
+				},{
+					path:"/test",
+					element:<Test />
 				}
 			],
 			errorElement: <Error />

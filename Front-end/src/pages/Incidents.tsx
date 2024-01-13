@@ -21,6 +21,7 @@ const Incidents = () => {
 					upVotes={incident.upVotes}
 					downVotes={incident.downVotes}
 					onVote={refetch}
+					// comments={incident.comments}
 				/>
 			))}
 		</main>

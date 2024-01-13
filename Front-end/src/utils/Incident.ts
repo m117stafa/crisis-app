@@ -1,3 +1,4 @@
+import { CommentModel } from "./COmmentModel";
 import { Location } from "./Location";
 import { IncidentTypesEnum, UrgencyEnum } from "./enums";
 
@@ -14,4 +15,5 @@ export interface Incident{
     urgency: UrgencyEnum;
     upVotes: number;
     downVotes: number;
+    comments: CommentModel[];
 }
