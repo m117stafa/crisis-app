@@ -1,10 +1,10 @@
 package com.ensias.usersservice.users.controller;
 
+import com.ensias.clients.users.UserResponse;
 import com.ensias.usersservice.users.model.User;
 import com.ensias.usersservice.users.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.tuto.clients.UserResponse;
 
 import java.util.List;
 

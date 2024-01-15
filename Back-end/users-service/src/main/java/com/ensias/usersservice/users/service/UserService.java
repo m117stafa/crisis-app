@@ -1,9 +1,9 @@
 package com.ensias.usersservice.users.service;
 
+import com.ensias.clients.users.UserResponse;
 import com.ensias.usersservice.users.model.User;
 import com.ensias.usersservice.users.repository.UserRepository;
 import org.springframework.stereotype.Service;
-import org.tuto.clients.UserResponse;
 
 import java.util.List;
 import java.util.Optional;

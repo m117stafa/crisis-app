@@ -5,7 +5,7 @@ spring:
         - id: incident-service
           uri: lb://INCIDENT-SERVICE
           predicates:
-            - Path=/incident/**
+            - Path=/incident/**, /comment/**
 
         - id: users-service
           uri: lb://USERS-SERVICE

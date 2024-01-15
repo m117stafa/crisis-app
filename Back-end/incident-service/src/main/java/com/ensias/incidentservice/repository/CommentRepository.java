@@ -1,2 +1,8 @@
-package com.ensias.incidentservice.repository;public interface CommentRepository {
+package com.ensias.incidentservice.repository;
+
+import com.ensias.incidentservice.model.Comment;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface CommentRepository extends MongoRepository<Comment,String> {
+
 }

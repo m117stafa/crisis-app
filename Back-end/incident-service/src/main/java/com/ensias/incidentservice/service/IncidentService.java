@@ -1,15 +1,12 @@
 package com.ensias.incidentservice.service;
 
+import com.ensias.clients.users.UserClient;
 import com.ensias.incidentservice.model.Incident;
 import com.ensias.incidentservice.model.enums.Urgency;
 import com.ensias.incidentservice.repository.IncidentRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
-import org.tuto.clients.UserClient;
-
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,9 +32,9 @@ public class IncidentService {
         incident.setDate(LocalDateTime.now());
         incident.setUpVotes(0L);
         incident.setDownVotes(0L);
-        if(!userClient.getUserById(incident.getUserId()).getStatusCode().is2xxSuccessful()){
-            throw new RuntimeException("User not found for the id: " + incident.getUserId());
-        }
+//        if(!userClient.getUserById(incident.getUserId()).getStatusCode().is2xxSuccessful()){
+//            throw new RuntimeException("User not found for the id: " + incident.getUserId());
+//        }
         return incidentRepository.save(incident);
     }
 
